@@ -1,0 +1,49 @@
+nav{
+  .menu{
+    height:30px;
+    display:flex;
+    padding:10px;
+    cursor: pointer;
+    &:hover{
+      background:rgba(0,0,0,.01)
+    }
+    .name{
+      flex-grow: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      line-height:30px;
+
+    }
+    img{
+      flex-shrink: 0;
+      width:30px;
+      &.hot{
+        transform: rotate(90deg);
+      }
+    }
+
+  }
+  .menu_children{
+    &>.name{
+      cursor: pointer;
+      line-height:36px;
+      &:hover{
+        background:rgba(0,0,0,.1)
+      }
+    }
+    .name{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+
+      &:hover{
+
+      }
+      &.hot{
+        background:#409eff;
+        color:#fff;
+      }
+    }
+  }
+}

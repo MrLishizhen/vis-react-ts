@@ -4,6 +4,8 @@ import {createBrowserRouter,} from "react-router-dom";
 
 const Layout = React.lazy(() => import('../layout'))
 const Scale = React.lazy(() => import('../view/Scale'))
+const Demos = React.lazy(()=> import('../view/Demos'));
+
 const routers = createBrowserRouter([
     {
         path: '/',
@@ -12,6 +14,10 @@ const routers = createBrowserRouter([
             {
                 path:'scale',
                 element:<Scale/>
+            },
+            {
+                path:'demos',
+                element:<Demos/>
             }
         ]
     }
