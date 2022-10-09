@@ -6,24 +6,24 @@ const nav = [
         index:0,
         children:[
             {
-                path:'../echart/bar',
+                path:'Bar',
                 name:'柱状图1',
                 index:1,
                 hot:true,
-            },{
-                path:'',
-                name:'变异柱状图',
-                hot:false,
+            }
+        ]
+    },
+    {
+        path:'',
+        name:'折线图',
+        hot:false,
+        index:0,
+        children:[
+            {
+                path:'Line',
+                name:'折线图1',
                 index:1,
-                children:[
-                    {
-
-                        path:'../echart/bar',
-                        name:'柱状图2',
-                        hot:false,
-                        index:2
-                    }
-                ]
+                hot:false,
             }
         ]
     }

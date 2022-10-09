@@ -1,5 +1,41 @@
-.layout{
-  width:100%;
-  height:100%;
+
+.layout {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  & > header {
+    height: 60px;
+    color: #333;
+    flex-shrink: 0;
+    display: flex;
+    border-bottom: 1px solid #e0e0e0;
+
+    .logo {
+      width: 60px;
+      flex-shrink: 0;
+    }
+
+    .nav {
+      flex-grow: 1;
+      padding-left: 40px;
+      line-height: 60px;
+      text-align: right;
+
+      a {
+        margin: 0 10px;
+      }
+      :global {
+        a.active {
+          color: #646cff;
+        }
+      }
+    }
+  }
+
+  & > main {
+    flex-grow: 1;
+  }
 }

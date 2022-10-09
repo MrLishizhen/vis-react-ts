@@ -1,12 +1,14 @@
 import './App.css'
+import {useRoutes} from "react-router-dom";
 import routers from "./router";
-import {RouterProvider} from "react-router-dom";
 
 function App() {
-
+    const element = useRoutes(routers);
     return (
         <div className="App">
-            <RouterProvider router={routers} />
+            {
+                element
+            }
         </div>
     )
 }

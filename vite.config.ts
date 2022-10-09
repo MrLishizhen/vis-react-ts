@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     // 路径别名
-    alias: [
-      { find: '@', replacement: path.resolve(__dirname, './src') }
-    ]
+    alias:{
+      "@":path.resolve(__dirname,'./src')//配置@别名
+    }
   }
 })

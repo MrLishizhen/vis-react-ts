@@ -1,26 +1,30 @@
 // ts需要引入，并且要是用.tsx后缀
 import React from 'react'
-import {createBrowserRouter,} from "react-router-dom";
+import {createBrowserRouter, Navigate} from "react-router-dom";
 
-const Layout = React.lazy(() => import('../layout'))
-const Scale = React.lazy(() => import('../view/Scale'))
-const Demos = React.lazy(()=> import('../view/Demos'));
-
-const routers = createBrowserRouter([
+import Layout from '../layout'
+const Scale = React.lazy(() => import('../view/Scale/index'))
+const Demos = React.lazy(() => import('../view/Demos/index'));
+export const routes = [
+    {
+        path: '/',
+        element: <Navigate to='/scale' />
+    },
     {
         path: '/',
         element: <Layout/>,
-        children:[
+        children: [
             {
                 path:'scale',
-                element:<Scale/>
+                element: <Scale/>
             },
             {
-                path:'demos',
-                element:<Demos/>
+                path: 'demos',
+                element: <Demos/>
             }
         ]
     }
-])
+    ];
+const routers = [...routes]
 
 export default routers
