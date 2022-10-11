@@ -1,57 +1,66 @@
-nav{
-
-  .menu{
-    height:30px;
-    display:flex;
-    padding:10px;
+nav {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  .menu {
+    height: 30px;
+    display: flex;
+    padding: 10px;
     cursor: pointer;
-    &:hover{
-      background:rgba(0,0,0,.01)
+
+    &:hover {
+      background: rgba(0, 0, 0, .01)
     }
-    .name{
+
+    ._name {
       flex-grow: 1;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      line-height:30px;
+      line-height: 30px;
 
     }
-    img{
+
+    img {
       flex-shrink: 0;
-      width:30px;
+      width: 30px;
       transition: all 0.4s;
-      &.hot{
+
+      &.hot {
         transform: rotate(90deg);
       }
     }
 
   }
-  .menu_children{
+
+  .name {
+    margin:4px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    cursor: pointer;
+    line-height: 36px;
+
+    //&:hover {
+    //  background: rgba(0, 0, 0, .1)
+    //}
+
+    &:hover {
+      background: #409eff;
+      color: #fff;
+    }
+    &.hot {
+      background: #409eff;
+      color: #fff;
+    }
+  }
+
+  .menu_children {
     transition: all 1s;
-    display:none;
-    &.hot{
-      display:block;
-    }
+    display: none;
 
-    &>.name{
-      cursor: pointer;
-      line-height:36px;
-      &:hover{
-        background:rgba(0,0,0,.1)
-      }
-    }
-    .name{
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      &:hover{
-
-      }
-      &.hot{
-
-        background:#409eff;
-        color:#fff;
-      }
+    &.hot {
+      display: block;
     }
   }
 }
