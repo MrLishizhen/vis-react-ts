@@ -1,6 +1,8 @@
+import styles from '../index.module.less'
+
 const Bar = ()=>{
     return (
-        <div>我是bar</div>
+        <div className={styles.echarts_box}>我是bar</div>
     )
 }
 
