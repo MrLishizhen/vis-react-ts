@@ -17,29 +17,29 @@ const Layout = () => {
         }
     ]
 
-    useEffect(()=>{
-        let time = setTimeout(()=>{
-            let {current} = header;
-            // @ts-ignore
-            current.style.height=0;
-        },2000)
-
-        const mousemove = (e:MouseEvent)=>{
-            let {current} = header;
-            if(e.clientY<30){
-                // @ts-ignore
-                current.style.height='60px';
-            }else{
-                // @ts-ignore
-                current.style.height=0;
-            }
-        }
-        document.body.addEventListener('mousemove',mousemove,false)
-        return ()=>{
-            clearTimeout(time);
-            document.body.removeEventListener('mousemove',mousemove)
-        }
-    },[])
+    // useEffect(()=>{
+    //     let time = setTimeout(()=>{
+    //         let {current} = header;
+    //         // @ts-ignore
+    //         current.style.height=0;
+    //     },2000)
+    //
+    //     const mousemove = (e:MouseEvent)=>{
+    //         let {current} = header;
+    //         if(e.clientY<30){
+    //             // @ts-ignore
+    //             current.style.height='60px';
+    //         }else{
+    //             // @ts-ignore
+    //             current.style.height=0;
+    //         }
+    //     }
+    //     document.body.addEventListener('mousemove',mousemove,false)
+    //     return ()=>{
+    //         clearTimeout(time);
+    //         document.body.removeEventListener('mousemove',mousemove)
+    //     }
+    // },[])
     return (
         <div className={styles.layout}>
             <header ref={header}>

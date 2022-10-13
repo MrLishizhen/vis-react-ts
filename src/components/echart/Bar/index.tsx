@@ -1,8 +1,16 @@
 import styles from '../index.module.less'
+import React from 'react';
+import Echart from '../index'
+// @ts-ignore
+import * as echarts from 'echarts';
+type EChartsOption = echarts.EChartsOption
 
-const Bar = ()=>{
+
+const Bar:React.FC<{data:EChartsOption}> = ({data})=>{
     return (
-        <div className={styles.echarts_box}>我是bar</div>
+        <div className={styles.echarts_box}>
+            <Echart data={data}></Echart>
+        </div>
     )
 }
 

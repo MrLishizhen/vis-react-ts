@@ -1,34 +1,35 @@
-import {useEffect, useRef} from "react";
+import React, {useEffect, useRef} from "react";
 // @ts-ignore
 import * as echarts from 'echarts';
 
 type EChartsOption = echarts.EChartsOption
-const Chart_box = () => {
-    const chart = useRef(null);
+const Chart_box: React.FC<{ data: EChartsOption }> = (props) => {
+
+    const {data = {}} = props;
+    const myChart = useRef<any>(null);
+    let option: EChartsOption = {};
+
+    const resizeAll = () => {
+        myChart.current.resize()
+    }
 
     useEffect(() => {
-        const myChart = echarts.init(chart);
-        const option: EChartsOption = {
-            xAxis: {
-                type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-            },
-            yAxis: {
-                type: 'value'
-            },
-            series: [
-                {
-                    data: [150, 230, 224, 218, 135, 147, 260],
-                    type: 'line'
-                }
-            ]
-        };
+        if (myChart.current) {
+            window.removeEventListener('resize', resizeAll, false)
+            myChart.current.dispose(document.getElementById('chart'));
+        }
+        const chart: HTMLElement | null = document.getElementById('chart')
+        if (chart) {
 
-        option && myChart.setOption(option);
-    }, [])
+            myChart.current = echarts.init(chart);
 
+            option = data;
+            option && myChart.current.setOption(option, true);
+            window.addEventListener('resize', resizeAll, false)
+        }
+    }, [data])
     return (
-        <div ref={chart} style={{width: '100%', height: '100%'}}></div>
+        <div id='chart' style={{width: '100%', height: '100%'}}></div>
     )
 }
 
