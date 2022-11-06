@@ -13,6 +13,7 @@ interface Data {
     Bar:EChartsOption,
 }
 
+
 const modules = import.meta.glob('../echart/*/*')
 const Component: React.FC<Component> = (props) => {
     const {link = ''} = props;

@@ -3,10 +3,14 @@ import Echart from "../index";
 import React from "react";
 import * as echarts from "echarts";
 type EChartsOption = echarts.EChartsOption
-const Line:React.FC<{data:EChartsOption}> = ({data})=>{
+interface option {
+    option:EChartsOption
+}
+
+const Line:React.FC<{data:option}> = ({data})=>{
     return (
         <div className={styles.echarts_box}>
-            <Echart data={data}></Echart>
+            <Echart data={data.option}></Echart>
         </div>
     )
 }

@@ -3,19 +3,26 @@ import React from 'react'
 import {createBrowserRouter, Navigate} from "react-router-dom";
 
 import Layout from '../layout'
-const Scale = React.lazy(() => import('../view/Scale/index'))
+
+const Scale = React.lazy(() => import('../view/Scale/index'));
 const Demos = React.lazy(() => import('../view/Demos/index'));
+import Home from '../view/Home'
+
 export const routes = [
-    {
-        path: '/',
-        element: <Navigate to='/scale' />
-    },
     {
         path: '/',
         element: <Layout/>,
         children: [
+            // {
+            //     path: '/',
+            //     element: <Navigate to='/scale' />
+            // },
             {
-                path:'scale',
+                index: true,
+                element: <Home/>
+            },
+            {
+                path: 'scale',
                 element: <Scale/>
             },
             {
@@ -24,7 +31,7 @@ export const routes = [
             }
         ]
     }
-    ];
-const routers = [...routes]
+];
+const routers = createBrowserRouter([...routes])
 
 export default routers

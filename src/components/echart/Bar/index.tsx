@@ -4,12 +4,15 @@ import Echart from '../index'
 // @ts-ignore
 import * as echarts from 'echarts';
 type EChartsOption = echarts.EChartsOption
+interface option {
+    option:EChartsOption
+}
 
-
-const Bar:React.FC<{data:EChartsOption}> = ({data})=>{
+const Bar:React.FC<{data:option}> = ({data})=>{
+    // console.log(data)
     return (
         <div className={styles.echarts_box}>
-            <Echart data={data}></Echart>
+            <Echart data={data.option}></Echart>
         </div>
     )
 }
