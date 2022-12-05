@@ -4,23 +4,19 @@ import {createBrowserRouter, Navigate} from "react-router-dom";
 
 import Layout from '../layout'
 
-const Scale = React.lazy(() => import('../view/Scale/index'));
-const Demos = React.lazy(() => import('../view/Demos/index'));
-import Home from '../view/Home'
+const Scale = React.lazy(() => import('../view/scale/index'));
+const Demos = React.lazy(() => import('../view/demo-charts/index'));
+
 
 export const routes = [
     {
         path: '/',
+        element: <Navigate to='/scale' />
+    },
+    {
+        path: '/',
         element: <Layout/>,
         children: [
-            // {
-            //     path: '/',
-            //     element: <Navigate to='/scale' />
-            // },
-            {
-                index: true,
-                element: <Home/>
-            },
             {
                 path: 'scale',
                 element: <Scale/>
