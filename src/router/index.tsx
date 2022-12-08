@@ -1,20 +1,21 @@
 // ts需要引入，并且要是用.tsx后缀
 import React from 'react'
 import {createBrowserRouter, Navigate, useNavigate, redirect} from "react-router-dom";
-
+import {
+    Scale,
+    Demos,
+    ReactDemo,
+    ReactDemoLogin,
+    Views,
+    Welcome
+} from './com_store'
 import Layout from '../layout'
 import Empty from '@/view/empty'
-
-const Scale = React.lazy(() => import('../view/scale/index'));
-const Demos = React.lazy(() => import('../view/demo-charts/index'));
-const ReactDemo = React.lazy(() => import('@/view/react-demo/index'));
-const ReactDemoLogin = React.lazy(() => import('@/view/react-demo/login/index'))
-const Views = React.lazy(() => import('@/view/react-demo/views'))
 
 export const routes = [
     {
         path: '/',
-        errorElement:<Empty/>,
+        errorElement: <Empty/>,
         element: <Navigate to='/react-demo/login'/>,
     },
     {
@@ -34,6 +35,10 @@ export const routes = [
                 element: <ReactDemo/>,
                 children: [
                     {
+                        path: 'views',
+                        element: <Navigate to='/react-demo/views/welcome'/>,
+                    },
+                    {
                         path: 'login',
                         element: <ReactDemoLogin/>,
                         loader: async () => {
@@ -50,12 +55,15 @@ export const routes = [
                             const local = sessionStorage.getItem('userInfo') || 0;
                             if (local === 0) {
                                 return redirect('/react-demo/login')
-                            }else{
+                            } else {
                                 console.log(456)
                             }
                         },
                         children: [
-                            {}
+                            {
+                                path:'welcome',
+                                element:<Welcome />
+                            }
                         ]
                     }
                 ]
