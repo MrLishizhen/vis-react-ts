@@ -21,3 +21,17 @@ Mock.mock('/set_user',function(){
         'result':{}
     })
 })
+
+Mock.mock('/get_menu',function(){
+    return Mock.mock({
+        'code':200,
+        'msg':'',
+        'result':[
+
+            {
+                label:'分析页',
+                key:'analysis'
+            }
+        ]
+    })
+})

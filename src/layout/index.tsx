@@ -134,9 +134,9 @@ const Layout = () => {
 
             </header>
             <main>
-                <Suspense fallback={<div>Loading...</div>}>
+                {/*<Suspense fallback={<div style={{background:'rgba(0,0,0,0)'}}>Loading...</div>}>*/}
                     <Outlet></Outlet>
-                </Suspense>
+                {/*</Suspense>*/}
             </main>
         </div>
     )

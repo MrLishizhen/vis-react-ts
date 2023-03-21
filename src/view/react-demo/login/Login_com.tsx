@@ -3,9 +3,11 @@ import {Button, Checkbox, Form, Input, message} from 'antd';
 import styles from './index.module.less'
 import {userLogin} from "@/api/reacr-demo";
 import {useNavigate} from "react-router-dom";
-
+import {useAppDispatch} from '@/store/hook'
+import {thunk_get_menu } from '@/store/react-demo/menu'
 const Login_com: React.FC<{ onChange: () => void }> = ({onChange}) => {
     const [form] = Form.useForm();
+    const dispatch =  useAppDispatch()
     const [messageApi, contextHolder] = message.useMessage();
     const navigate = useNavigate();
     const onFinish = (values: any) => {
@@ -15,6 +17,7 @@ const Login_com: React.FC<{ onChange: () => void }> = ({onChange}) => {
                     type: 'success',
                     content: '登录成功,正在跳转!',
                 });
+                dispatch(thunk_get_menu({userName:'admin'}))
                 sessionStorage.setItem('userInfo',res.result)
                 navigate('/react-demo/views')
             } else {

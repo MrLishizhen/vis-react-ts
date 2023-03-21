@@ -9,6 +9,9 @@ interface setUser {
     password:string,
     email:string,
 }
+interface user_menu {
+    userName:string,
+}
 export function userLogin(data:userLogin){
     return Axios({
         "url":'/login',
@@ -20,6 +23,15 @@ export function userLogin(data:userLogin){
 export function setUser(data:setUser){
     return Axios({
         "url":'/set_user',
+        "method":"POST",
+        "data":data,
+        "loading":true
+    })
+}
+
+export function getMenu(data:user_menu){
+    return Axios({
+        "url":'/get_menu',
         "method":"POST",
         "data":data,
         "loading":true

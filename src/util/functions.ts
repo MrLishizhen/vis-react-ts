@@ -22,3 +22,4 @@ export let deepClone = (obj:any)=>{
     return objClone;
 }
 
+export const time = new Date().getTime()

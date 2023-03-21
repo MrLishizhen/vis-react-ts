@@ -4,15 +4,15 @@ import store from '@/store/store'
 import ReactDOM from 'react-dom/client'
 import 'antd/dist/reset.css';
 import './index.css'
-import router from './router'
+import RouterElement from './router'
 import '@/util/mock/index'
 import {RouterProvider} from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    <React.StrictMode>
+    // <React.StrictMode>
         <Provider store={store}>
-            <RouterProvider router={router}></RouterProvider>
+            <RouterElement></RouterElement>
         </Provider>
 
-    </React.StrictMode>
+    // </React.StrictMode>
 )
